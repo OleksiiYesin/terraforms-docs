@@ -32,6 +32,12 @@ variable "extra_environment" {
   default     = []
 }
 
+variable "test" {
+  description = "test variable"
+  type        = "string"
+  default     = "test"
+}
+
 output "vpc_id" {
   description = "The Id of the VPC"
   value       = "${var.vpc_id}"

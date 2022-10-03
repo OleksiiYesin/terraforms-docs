@@ -20,7 +20,7 @@ jobs:
       - uses: lablabs/setup-terraform-docs@v1
         name: Setup Terraform docs
         with:
-          terraform_docs_version: v0.16.0
+          terraform_docs_version: v0.9.1
 
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2

@@ -3,10 +3,22 @@ author: 'Oleksii Yesin'
 description: 'Generating Terraform Documentation'
 
 inputs:
-  name:
-    description: 'Name to greet'
+  tf_working_dir:
+    description: 'working dir'
     required: false
-    default: 'Oleksii Yesin'
+    default: 'examples'
+  tf_output_mode:
+    description: 'output mode'
+    required: false
+    default: 'inject'
+  tf_output_file:
+    description: 'output file'
+    required: false
+    default: 'README.md'
+  tf_output_format:
+    description: 'output format'
+    required: false
+    default: 'markdown table'
 
 runs:
   using: 'node16'

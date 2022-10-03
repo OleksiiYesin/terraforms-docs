@@ -17,11 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: lablabs/setup-terraform-docs@v1
-        name: Setup Terraform docs
-        with:
-          terraform_docs_version: v0.9.1
-
+      - name: Setup Terraform docs
+        run: |
+          curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
+          tar -xzf terraform-docs.tar.gz
+          chmod +x terraform-docs
+          
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:

@@ -1,5 +1,4 @@
 import { getInput } from "@actions/core";
-import { execSync } from "child_process";
 import { getStdOutput } from './res/utils';
 
 const workingDir = getInput("tf_working_dir");

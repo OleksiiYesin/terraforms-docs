@@ -1,0 +1,26 @@
+{
+  "name": "terraforms-docs",
+  "version": "0.0.1",
+  "description": "Generating tf docs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OleksiiYesin/terraforms-docs.git"
+  },
+  "author": "Oleksii Yesin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OleksiiYesin/terraforms-docs/issues"
+  },
+  "homepage": "https://github.com/OleksiiYesin/terraforms-docs#readme",
+  "devDependencies": {
+    "@types/node": "^18.8.0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  }
+}

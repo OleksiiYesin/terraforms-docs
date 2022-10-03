@@ -1,0 +1,13 @@
+name: 'Terraform Docs'
+author: 'Oleksii Yesin'
+description: 'Generating Terraform Documentation'
+
+inputs:
+  name:
+    description: 'Name to greet'
+    required: false
+    default: 'Oleksii Yesin'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

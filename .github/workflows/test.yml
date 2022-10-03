@@ -39,5 +39,10 @@ jobs:
           npm run build
           terraform-docs --version
 
-      # - name: Run my action
-      #   uses: ./
+      - name: Run my action
+        uses: ./
+        with: 
+          tf_working_dir: examples
+          tf_output_mode: inject
+          tf_output_file: README.md
+          tf_output_format: mardown table

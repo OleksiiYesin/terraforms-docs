@@ -1,10 +1,10 @@
 import { getInput } from "@actions/core";
 import { execSync } from "child_process";
 
-const workingDir = getInput("working_dir");
-const outputFormat = getInput("output_format");
-const outputMode = getInput("output_mode")
-const outputFile = getInput("output_file")
+const workingDir = getInput("tf_working_dir");
+const outputFormat = getInput("tf_output_format");
+const outputMode = getInput("tf_output_mode")
+const outputFile = getInput("tf_output_file")
 
 
 function checkReadme(workingDir: string, outputFormat: string, outputMode: string, outputFile: string) {

@@ -32,10 +32,10 @@ variable "extra_environment" {
   default     = []
 }
 
-variable "test" {
+variable "test2" {
   description = "test variable"
   type        = "string"
-  default     = "test"
+  default     = "test2"
 }
 
 output "vpc_id" {

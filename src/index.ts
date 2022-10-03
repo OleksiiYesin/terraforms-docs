@@ -8,7 +8,7 @@ const outputFile = getInput("tf_output_file")
 
 
 function checkReadme(workingDir: string, outputFormat: string, outputMode: string, outputFile: string) {
-  async () => {return getStdOutput('terraform-docs', [ `${outputFormat}`, `--output-file ${outputFile}`, `--output-mode ${outputMode}`, `${workingDir}`, `--output-check`])};
+  async () => {return getStdOutput('terraform-docs', [ `${outputFormat}`, `--output-file ${outputFile}`, `--output-mode ${outputMode}`, `./${workingDir}`, '--output-check' ])};
 }
 
 function run() {

@@ -6,7 +6,7 @@ inputs:
   tf_working_dir:
     description: 'working dir'
     required: false
-    default: 'examples'
+    default: './examples'
   tf_output_mode:
     description: 'output mode'
     required: false

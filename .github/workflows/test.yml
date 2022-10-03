@@ -17,6 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: lablabs/setup-terraform-docs@v1
+        name: Setup Terraform docs
+        with:
+          terraform_docs_version: v0.16.0
+
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
         with:
@@ -28,7 +33,9 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: | 
+          npm run build
+          terraform-docs --version
 
-      - name: Run my action
-        uses: ./
+      # - name: Run my action
+      #   uses: ./

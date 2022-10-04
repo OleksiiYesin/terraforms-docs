@@ -42,8 +42,6 @@ async function gitSetup() {
 
 async function gitStatus() {
   const num = getStdOutput('git', [ '--version'])
-  console.log(num);
-  
 }
 
 

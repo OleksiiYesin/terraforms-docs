@@ -17,7 +17,7 @@ async function run() {
 
   const config = git.getConfig('show', 'global')
 
-  console.log(config);
+  console.log(config.toString());
   
 
   if(failOnDiff == "true") {

@@ -1,9 +1,7 @@
 import { getInput } from "@actions/core";
 import { execSync } from "child_process";
-import simpleGit from 'simple-git';
+import { simpleGit, SimpleGitOptions } from 'simple-git';
 import { getStdOutput } from "./res/utils";
-
-const git = simpleGit();
 
 const workingDir = getInput("tf_working_dir");
 const outputFormat = getInput("tf_output_format");
@@ -15,16 +13,22 @@ const failOnDiff = getInput("tf_fail_on_diff");
 
 async function run() {
   await gitSetup()
-  gitStatus()  
+  await gitStatus()  
 
-  // getStdOutput('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
-  getStdOutput('git', ['config', '--global', '--list'])
   if(failOnDiff == "true") {
     console.log('Uncommitted change(s) has been found!');
     process.exit(1)
   }
 }
 
+const options: Partial<SimpleGitOptions> = {
+  baseDir: process.cwd(),
+  binary: 'git',
+  maxConcurrentProcesses: 6,
+  trimmed: false,
+};
+
+const git = simpleGit(options);
 
 async function gitSetup() {
   if(!pushUserName) {

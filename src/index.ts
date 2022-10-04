@@ -1,10 +1,17 @@
 import { getInput } from "@actions/core";
 import { getStdOutput } from './res/utils';
+import simpleGit from 'simple-git';
 
 const workingDir = getInput("tf_working_dir");
 const outputFormat = getInput("tf_output_format");
 const outputMode = getInput("tf_output_mode")
 const outputFile = getInput("tf_output_file")
+
+const git = simpleGit();
+
+const add = git.add('src/index.ts')
+const status = git.status(['--porcelain'])
+
 
 
 function checkReadme(workingDir: string, outputFormat: string, outputMode: string, outputFile: string) {
@@ -12,7 +19,9 @@ function checkReadme(workingDir: string, outputFormat: string, outputMode: strin
 }
 
 function run() {
-  checkReadme(workingDir,outputFormat,outputMode,outputFile)
+  console.log(add);
+  
+  console.log(status);
 }
 
 run()

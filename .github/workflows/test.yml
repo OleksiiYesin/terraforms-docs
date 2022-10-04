@@ -41,5 +41,3 @@ jobs:
 
       - name: Run my action
         uses: ./
-        with:
-          tf_fail_on_diff: "true"

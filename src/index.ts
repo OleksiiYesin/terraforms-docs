@@ -39,7 +39,7 @@ async function gitSetup() {
 }
 
 async function gitStatus() {
-  git.status(['--', 'porcelain'], () => console.log('status finished succesfully!'))
+  git.status(['--', 'porcelain'])
 }
 
 

@@ -17,7 +17,7 @@ async function run() {
   gitSetup()
   gitStatus()  
 
-  getStdOutput('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
+  // getStdOutput('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
   getStdOutput('git', ['config', '--list'])
   if(failOnDiff == "true") {
     console.log('Uncommitted change(s) has been found!');
@@ -30,7 +30,7 @@ async function gitSetup() {
   if(!pushUserName) {
     git.addConfig('user.name', `${pushUserName}`, true, 'global')
   } else {
-    // git.addConfig('user.name', 'github-actions[bot]', true, 'global')
+    git.addConfig('user.name', '"github-actions[bot]"', true, 'global')
   }
 
   if(!pushUserEmail) {

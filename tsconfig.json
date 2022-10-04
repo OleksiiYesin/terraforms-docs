@@ -7,8 +7,7 @@
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
       "outDir": "dist",
-      "lib": ["esnext"],
-      "composite": true
+      "lib": ["esnext"]
     },
     "references": [
       {

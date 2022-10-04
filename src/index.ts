@@ -18,7 +18,7 @@ async function run() {
   gitStatus()  
 
   // getStdOutput('git', ['config', '--global', 'user.name', 'github-actions[bot]'])
-  getStdOutput('git', ['config', '--list'])
+  getStdOutput('git', ['config', '--global', '--list'])
   if(failOnDiff == "true") {
     console.log('Uncommitted change(s) has been found!');
     process.exit(1)

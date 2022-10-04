@@ -13,7 +13,9 @@ const failOnDiff = getInput("tf_fail_on_diff");
 
 async function run() {
   gitSetup()
-  console.log(gitStatus())
+  gitStatus()
+
+  git.getConfig('show', 'global')
 
   if(failOnDiff == "true") {
     console.log('Uncommitted change(s) has been found!');

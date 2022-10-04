@@ -30,11 +30,15 @@ const options: Partial<SimpleGitOptions> = {
 
 const git = simpleGit(options);
 
+if (!git.version()) {
+  throw new Error(`Exit: "git" not available.`);
+}
+
 async function gitSetup() {
   if(!pushUserName) {
-    git.addConfig('user.name', `${pushUserName}`, true, 'global')
+    await git.addConfig('user.name', `${pushUserName}`, true, 'global')
   } else {
-    git.addConfig('user.name', '"github-actions[bot]"', true, 'global')
+    await git.addConfig('user.name', '"github-actions[bot]"', true, 'global')
   }
 
   if(!pushUserEmail) {
@@ -42,8 +46,6 @@ async function gitSetup() {
   } else {
     git.addConfig('user.email', 'github-actions[bot]@users.noreply.github.com', true, 'global')
   }
-
-  git.getConfig()
 }
 
 async function gitStatus() {

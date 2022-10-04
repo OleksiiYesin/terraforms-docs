@@ -1,4 +1,5 @@
 import { getInput } from "@actions/core";
+import { execSync } from "child_process";
 import simpleGit from 'simple-git';
 
 const git = simpleGit();
@@ -13,12 +14,7 @@ const failOnDiff = getInput("tf_fail_on_diff");
 
 async function run() {
   gitSetup()
-  gitStatus()
-
-  const config = git.getConfig('show', 'global')
-
-  console.log(config.toString());
-  
+  gitStatus()  
 
   if(failOnDiff == "true") {
     console.log('Uncommitted change(s) has been found!');
@@ -44,7 +40,9 @@ async function gitSetup() {
 }
 
 async function gitStatus() {
-  git.status(['--', 'porcelain'])
+  const num = execSync("git status --porcelain | grep /\*.tf | grep -c -E '([MA]\W).+'")
+  console.log(num);
+  
 }
 
 

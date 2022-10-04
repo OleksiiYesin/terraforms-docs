@@ -29,7 +29,8 @@ async function gitSetup() {
   if(!pushUserName) {
     git.addConfig('user.name', `${pushUserName}`, true, 'global')
   } else {
-    git.addConfig('user.name', 'github-actions[bot]', true, 'global')
+    // git.addConfig('user.name', 'github-actions[bot]', true, 'global')
+    getStdOutput('git', ['config', 'user.name', 'github-actions[bot]'])
   }
 
   if(!pushUserEmail) {

@@ -15,7 +15,10 @@ async function run() {
   gitSetup()
   gitStatus()
 
-  git.getConfig('show', 'global')
+  const config = git.getConfig('show', 'global')
+
+  console.log(config);
+  
 
   if(failOnDiff == "true") {
     console.log('Uncommitted change(s) has been found!');

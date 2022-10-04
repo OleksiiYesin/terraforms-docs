@@ -15,7 +15,7 @@ const pushUserEmail = (0, core_1.getInput)("tf_git_push_user_email");
 const failOnDiff = (0, core_1.getInput)("tf_fail_on_diff");
 async function run() {
     gitSetup();
-    gitStatus();
+    console.log(gitStatus());
     if (failOnDiff == "true") {
         console.log('Uncommitted change(s) has been found!');
         process.exit(1);
@@ -37,6 +37,6 @@ async function gitSetup() {
     git.fetch();
 }
 async function gitStatus() {
-    git.status(['--', 'porcelain'], () => console.log('status finished succesfully!'));
+    git.status(['--', 'porcelain']);
 }
 run();

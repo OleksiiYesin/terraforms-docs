@@ -40,7 +40,7 @@ async function gitSetup() {
 }
 
 async function gitStatus() {
-  const num = execSync("git status --porcelain | grep /\*.tf | grep -c -E '([MA]\W).+'")
+  const num = execSync("git --version")
   console.log(num);
   
 }

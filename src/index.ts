@@ -1,28 +1,46 @@
+import { getInput } from "@actions/core";
 import simpleGit from 'simple-git';
 
-const gitRepo = 'git@github.com:OleksiiYesin/terraforms-docs.git';
-const tempFolder = 'bla-bla';
+const git = simpleGit();
 
-const git = simpleGit()
+const workingDir = getInput("tf_working_dir");
+const outputFormat = getInput("tf_output_format");
+const outputMode = getInput("tf_output_mode");
+const outputFile = getInput("tf_output_file");
+const pushUserName = getInput("tf_git_push_user_name");
+const pushUserEmail = getInput("tf_git_push_user_email");
+const failOnDiff = getInput("tf_fail_on_diff");
+
+async function run() {
+  gitSetup()
+  gitStatus()
+
+  if(failOnDiff == "true") {
+    console.log('Uncommitted change(s) has been found!');
+    process.exit(1)
+  }
+}
 
 
-const options = ['--depth', '1'];
-const callback = () => {
-    console.log('Done cloning!');      
-    // Now change some code in the cloned code 
-    // and commit && push 
-};
+async function gitSetup() {
+  if(!pushUserName) {
+    git.addConfig('user.name', `${pushUserName}`, true, 'global')
+  } else {
+    git.addConfig('user.name', 'github-actions[bot]', true, 'global')
+  }
 
-// Cloning ...
-git.outputHandler((command, stdout, stderr) => {
-    stdout.pipe(process.stdout);
-    stderr.pipe(process.stderr)
+  if(!pushUserEmail) {
+    git.addConfig('user.email', `${pushUserEmail}`, true, 'global')
+  } else {
+    git.addConfig('user.email', 'github-actions[bot]@users.noreply.github.com', true, 'global')
+  }
 
-    stdout.on('src/index.ts', (data) => {
-        // Print data
-        console.log(data.toString('utf8'));})
-    })
-    .clone(gitRepo, tempFolder, options, callback);
+  git.fetch()
+}
 
-git.add('.')
-git.status()
+async function gitStatus() {
+  git.status(['--', 'porcelain'], () => console.log('status finished succesfully!'))
+}
+
+
+run()

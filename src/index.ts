@@ -43,7 +43,7 @@ async function gitSetup() {
     git.addConfig('user.email', 'github-actions[bot]@users.noreply.github.com', true, 'global')
   }
 
-  git.fetch()
+  git.getConfig()
 }
 
 async function gitStatus() {

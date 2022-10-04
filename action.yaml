@@ -19,15 +19,15 @@ inputs:
     description: 'output format'
     required: false
     default: 'markdown table'
-  tf_git-push-user-name:
+  tf_git_push_user_name:
     description: If empty the name of the GitHub Actions bot will be used (i.e. `github-actions[bot]`)
     required: false
     default: ""
-  tf_git-push-user-email:
+  tf_git_push_user_email:
     description: If empty the no-reply email of the GitHub Actions bot will be used (i.e. `github-actions[bot]@users.noreply.github.com`)
     required: false
     default: ""
-  tf_fail-on-diff:
+  tf_fail_on_diff:
     description: Fail the job if there is any diff found between the generated output and existing file (ignored if `git-push` is set)
     required: false
     default: "false"

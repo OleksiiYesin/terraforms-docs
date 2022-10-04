@@ -1,18 +1,28 @@
-import { getInput } from "@actions/core";
-import { getStdOutput } from './res/utils';
 import simpleGit from 'simple-git';
 
-const git = simpleGit();
+const gitRepo = 'git@github.com:OleksiiYesin/terraforms-docs.git';
+const tempFolder = 'bla-bla';
 
-const config = git.getConfig('*')
+const git = simpleGit()
 
-const fetch = git.fetch(['--depth=1', 'origin', '+refs/tags/*:refs/tags/*'])
-const status = git.status(['--porcelain'])
 
-function run() {
-  console.log(config);
-  console.log(fetch);
-  console.log(status);
-}
+const options = ['--depth', '1'];
+const callback = () => {
+    console.log('Done cloning!');      
+    // Now change some code in the cloned code 
+    // and commit && push 
+};
 
-run()
+// Cloning ...
+git.outputHandler((command, stdout, stderr) => {
+    stdout.pipe(process.stdout);
+    stderr.pipe(process.stderr)
+
+    stdout.on('src/index.ts', (data) => {
+        // Print data
+        console.log(data.toString('utf8'));})
+    })
+    .clone(gitRepo, tempFolder, options, callback);
+
+git.add('.')
+git.status()

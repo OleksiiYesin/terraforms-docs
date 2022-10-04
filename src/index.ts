@@ -9,18 +9,11 @@ const outputFile = getInput("tf_output_file")
 
 const git = simpleGit();
 
-const add = git.add('src/index.ts')
+const fetch = git.fetch(['--depth=1', 'origin', '+refs/tags/*:refs/tags/*'])
 const status = git.status(['--porcelain'])
 
-
-
-function checkReadme(workingDir: string, outputFormat: string, outputMode: string, outputFile: string) {
-  async () => {return getStdOutput('terraform-docs', [ `${outputFormat}`, `--output-file ${outputFile}`, `--output-mode ${outputMode}`, `./${workingDir}`, '--output-check' ])};
-}
-
 function run() {
-  console.log(add);
-  
+  console.log(fetch);
   console.log(status);
 }
 

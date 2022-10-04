@@ -1,6 +1,7 @@
 import { getInput } from "@actions/core";
 import { execSync } from "child_process";
 import simpleGit from 'simple-git';
+import { getStdOutput } from "./res/utils";
 
 const git = simpleGit();
 
@@ -40,7 +41,7 @@ async function gitSetup() {
 }
 
 async function gitStatus() {
-  const num = execSync("git --version")
+  const num = getStdOutput('git', [ '--version'])
   console.log(num);
   
 }

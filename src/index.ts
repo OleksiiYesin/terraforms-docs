@@ -14,7 +14,7 @@ const pushUserEmail = getInput("tf_git_push_user_email");
 const failOnDiff = getInput("tf_fail_on_diff");
 
 async function run() {
-  gitSetup()
+  await gitSetup()
   gitStatus()  
 
   // getStdOutput('git', ['config', '--global', 'user.name', 'github-actions[bot]'])

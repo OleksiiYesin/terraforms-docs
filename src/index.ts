@@ -21,18 +21,7 @@ async function run() {
   }
 }
 
-const options: Partial<SimpleGitOptions> = {
-  baseDir: process.cwd(),
-  binary: 'git',
-  maxConcurrentProcesses: 6,
-  trimmed: false,
-};
-
-const git = simpleGit(options);
-
-if (!git.version()) {
-  throw new Error(`Exit: "git" not available.`);
-}
+const git = simpleGit();
 
 async function gitSetup() {
   if(!pushUserName) {

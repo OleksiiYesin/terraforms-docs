@@ -17,6 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Debug
+        run: |
+          export FORCE_COLOR=true
+
       - name: Install Git
         run: |
           sudo apt update -y

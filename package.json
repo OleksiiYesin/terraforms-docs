@@ -25,9 +25,6 @@
     "@actions/github": "^5.1.1",
     "@colors/colors": "^1.5.0",
     "@types/diff": "^5.0.2",
-    "chalk": "^5.1.2",
-    "colors": "^1.4.0",
-    "diff": "^5.1.0",
-    "simple-git": "^3.14.1"
+    "colors": "^1.4.0"
   }
 }

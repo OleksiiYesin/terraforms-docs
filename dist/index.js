@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
 const Diff = require("diff");
-const colors_1 = require("@colors/colors");
 require('colors');
 const file1 = './examples/README.md';
 const file2 = './examples/README_NEW.md';
@@ -17,7 +16,7 @@ else {
 async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
-        let values = part.added ? colors_1.green : part.removed ? 'red' : 'grey';
-        process.stderr.write(part.value[values]);
+        let values = part.added ? 'green' : part.removed ? 'red' : 'grey';
+        process.stdout.write(part.value[values]);
     });
 }

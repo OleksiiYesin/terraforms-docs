@@ -22,8 +22,8 @@ if(awk1 === awk2) {
 async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
-  diff.forEach((part) => {
-    let values: any = part.added ? green : part.removed ? 'red' : 'grey' ;
-    process.stderr.write(part.value[values])
+  diff.forEach((part: any) => {
+    let values = part.added ? 'green' : part.removed ? 'red' : 'grey' ;
+    process.stdout.write(part.value[values])
   });
 }

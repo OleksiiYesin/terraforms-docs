@@ -17,13 +17,16 @@
   },
   "homepage": "https://github.com/OleksiiYesin/terraforms-docs#readme",
   "devDependencies": {
-    "@types/node": "^18.8.0"
+    "@types/node": "^18.8.0",
+    "eslint": "^8.25.0"
   },
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/exec": "^1.1.1",
     "@actions/github": "^5.1.1",
     "@types/diff": "^5.0.2",
-    "diff": "^5.1.0"
+    "colors": "^1.4.0",
+    "diff": "^5.1.0",
+    "eslint-config-google": "^0.14.0"
   }
 }

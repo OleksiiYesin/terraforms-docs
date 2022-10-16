@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import * as Diff from 'diff';
+import Diff = require('diff');
 require('colors');
 
 const file1: string = './examples/README.md'

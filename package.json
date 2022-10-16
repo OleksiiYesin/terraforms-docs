@@ -11,7 +11,7 @@
     "url": "git+https://github.com/OleksiiYesin/terraforms-docs.git"
   },
   "author": "Oleksii Yesin",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/OleksiiYesin/terraforms-docs/issues"
   },

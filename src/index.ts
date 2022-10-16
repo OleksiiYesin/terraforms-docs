@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import * as core from '@actions/core';
 import Diff = require('diff');
 require('colors')
 
@@ -21,6 +22,6 @@ async function diff(file1: string, file2: string) {
 
   diff.forEach((part) => {
     let values: any = part.added ? 'green' : part.removed ? 'red' : 'grey' ;
-    process.stdout.write(part.value[values])
+    core.info(part.value[values])
   });
 }

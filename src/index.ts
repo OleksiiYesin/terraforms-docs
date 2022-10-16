@@ -2,8 +2,8 @@ import { execSync } from 'child_process';
 import * as Diff from 'diff';
 require('colors');
 
-const file1: string = './action/examples/README.md'
-const file2: string = './action/examples/README_NEW.md'
+const file1: string = './examples/README.md'
+const file2: string = './examples/README_NEW.md'
 
 
 const awk1 = execSync(`awk '/<!-- END_TF_DOCS -->/{found=0} {if(found) print} /<!-- BEGIN_TF_DOCS -->/{found=1}' ${file1}`).toString()

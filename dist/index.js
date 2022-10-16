@@ -16,7 +16,14 @@ else {
 async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
-        let values = part.added ? 'green' : part.removed ? 'red' : 'grey';
-        process.stdout.write('hello');
+        if (part.added) {
+            console.log(`added ${part.value.bgGreen} line(s):`);
+        }
+        else if (part.removed) {
+            console.log(`removed ${part.value.bgRed} line(s):`, ...part.value);
+        }
+        else {
+            console.log(`no changes`);
+        }
     });
 }

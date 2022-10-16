@@ -4,7 +4,7 @@
   "description": "Generating tf docs",
   "main": "dist/index.js",
   "scripts": {
-    "build": "FORCE_COLOR=true tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json"
   },
   "repository": {
     "type": "git",

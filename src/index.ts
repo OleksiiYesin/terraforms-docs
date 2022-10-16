@@ -24,6 +24,6 @@ async function diff(file1: string, file2: string) {
 
   diff.forEach((part: any) => {
     let values = part.added ? 'green' : part.removed ? 'red' : 'grey' ;
-    core.summary.write(part.value[values])
+    core.info(part.value[values])
   });
 }

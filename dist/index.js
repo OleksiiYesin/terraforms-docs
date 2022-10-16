@@ -41,6 +41,6 @@ async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
         let values = part.added ? 'green' : part.removed ? 'red' : 'grey';
-        core.summary.write(part.value[values]);
+        core.info(part.value[values]);
     });
 }

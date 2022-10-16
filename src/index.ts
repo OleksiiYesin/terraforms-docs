@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 import Diff = require('diff');
-require('colors');
+require('@colors/colors');
 
 const file1: string = './examples/README.md'
 const file2: string = './examples/README_NEW.md'

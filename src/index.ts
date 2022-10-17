@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 var term = require( 'terminal-kit' ).terminal ;
 import Diff = require('diff');
+require('colors');
 
 const file1: string = './examples/README.md'
 const file2: string = './examples/README_NEW.md'

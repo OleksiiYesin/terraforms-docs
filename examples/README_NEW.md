@@ -30,17 +30,15 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_extra_environment"></a> [extra\_environment](#input\_extra\_environment) | List of additional environment variables | `list` | `[]` | no |
 | <a name="input_extra_tags"></a> [extra\_tags](#input\_extra\_tags) | Additional tags | `map` | `{}` | no |
+| <a name="input_extra_tags-TEST"></a> [extra\_tags-TEST](#input\_extra\_tags-TEST) | Additional tags | `map` | `{}` | no |
 | <a name="input_instance_count"></a> [instance\_count](#input\_instance\_count) | Number of instances to create | `string` | `"1"` | no |
-| <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | Instance name prefix | `string` | `"test-1"` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | A list of subnet ids to use | `list` | n/a | yes |
 | <a name="input_test2"></a> [test2](#input\_test2) | test variable | `string` | `"test2"` | no |
-| <a name="input_test_variable_to_check"></a> [test\_variable\_to\_check](#input\_test\_variable\_to\_check) | test variable | `string` | `"Hello Oleksii"` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The id of the vpc | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_example"></a> [example](#output\_example) | This is example output |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The Id of the VPC |
 <!-- END_TF_DOCS -->

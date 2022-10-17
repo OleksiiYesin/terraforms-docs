@@ -8,12 +8,6 @@ variable "subnet_ids" {
   type        = "list"
 }
 
-variable "instance_name" {
-  description = "Instance name prefix"
-  type        = "string"
-  default     = "test-1"
-}
-
 variable "instance_count" {
   description = "Number of instances to create"
   type        = "string"
@@ -21,6 +15,12 @@ variable "instance_count" {
 }
 
 variable "extra_tags" {
+  description = "Additional tags"
+  type        = "map"
+  default     = {}
+}
+
+variable "extra_tags-TEST" {
   description = "Additional tags"
   type        = "map"
   default     = {}

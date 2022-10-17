@@ -1,7 +1,9 @@
 import { execSync } from 'child_process';
-import { red, greenBright, whiteBright } from "colorette"
-var markdown = require( "markdown" ).markdown;
+import { red, greenBright, gray } from 'colorette';
+import { colors } from 'colors.ts';
+var term = require( 'terminal-kit' ).terminal ;
 import Diff = require('diff');
+require('colors')
 
 const file1: string = './examples/README.md'
 const file2: string = './examples/README_NEW.md'
@@ -19,9 +21,10 @@ if(awk1 === awk2) {
 async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
-  diff.forEach((part) => {
-      part.added ? 	console.log(greenBright(markdown.toHTML(part.value))):
-      part.removed ? console.log(red(part.value)): console.log(whiteBright(part.value));
+  diff.forEach((part: any) => {
+    const color: any = part.added ? 'green' :
+      part.removed ? 'red' : 'white' ;
+      process.stdout.write(part.value[color])
   });
 }
 

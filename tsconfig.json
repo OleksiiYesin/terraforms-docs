@@ -3,7 +3,6 @@
       "target": "es2022",
       "module": "commonjs",
       "declaration": true,
-      "importHelpers": true,
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,

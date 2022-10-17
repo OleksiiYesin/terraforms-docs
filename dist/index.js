@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
-var term = require('terminal-kit').terminal;
+const colorette_1 = require("colorette");
 const Diff = require("diff");
 require('colors');
 const file1 = './examples/README.md';
@@ -17,9 +17,8 @@ else {
 async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
-        const color = part.added ? `green` :
-            part.removed ? 'red' : 'grey';
-        process.stdout.write(part.value[color]);
+        part.added ? console.log((0, colorette_1.greenBright)(part.value)) :
+            part.removed ? console.log((0, colorette_1.redBright)(part.value)) : console.log((0, colorette_1.gray)(part.value));
     });
 }
 // console.log( markdown.toHTML( "Hello *World*!" ) );

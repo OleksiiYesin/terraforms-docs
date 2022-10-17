@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-var term = require( 'terminal-kit' ).terminal ;
+import { redBright, greenBright, gray } from "colorette"
 import Diff = require('diff');
 require('colors');
 
@@ -20,10 +20,8 @@ async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
   diff.forEach((part) => {
-    const color: any = 
-      part.added ? 	`green`:
-      part.removed ? 'red' : 'grey';
-      process.stdout.write(part.value[color])
+      part.added ? 	console.log(greenBright(part.value)):
+      part.removed ? console.log(redBright(part.value)): console.log(gray(part.value));
   });
 }
 

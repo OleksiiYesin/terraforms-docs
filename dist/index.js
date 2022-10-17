@@ -1,11 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
-var term = require('terminal-kit').terminal;
-const chalk_1 = __importDefault(require("chalk"));
+const Diff = require("diff");
 require('colors');
 const file1 = './examples/README.md';
 const file2 = './examples/README_NEW.md';
@@ -15,21 +11,16 @@ if (awk1 === awk2) {
     console.log(`======\nREADME.md is up to date!!\n======\n`);
 }
 else {
-    // diff(awk1, awk2)
-    console.log(chalk_1.default.greenBright('Hello world!'));
+    diff(awk1, awk2);
 }
-// async function diff(file1: string, file2: string) {
-//   const diff = Diff.diffLines(file1, file2);
-//   diff.forEach((part) => {
-//     if(part.added) {
-//       term.green(part.value)
-//     } else if (part.removed) {
-//       term.red(part.value)
-//     } else {
-//       term.grey(part.value)
-//     }
-//   });
-// }
+async function diff(file1, file2) {
+    const diff = Diff.diffLines(file1, file2);
+    diff.forEach((part) => {
+        const color = part.added ? 'green' :
+            part.removed ? 'red' : 'grey';
+        process.stdout.write(part.value[color]);
+    });
+}
 // console.log( markdown.toHTML( "Hello *World*!" ) );
 // diff.forEach((part: any) => {
 //   let color: any = part.added ? 'green' : part.removed ? 'red' : 'grey' ;

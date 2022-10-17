@@ -19,7 +19,7 @@ async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
   diff.forEach((part) => {
-    const color: any = part.added ? 'green' : 'grey'
+    const color: any = part.added ? 'green' : 'grey' ;
       part.removed ? 'red' : 'grey';
       process.stdout.write(part.value[color])
   });

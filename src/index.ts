@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+// import {markdown} from 'markdown-js';
 import { bgGreen } from 'colors';
 import Diff = require('diff');
 require('colors');
@@ -25,6 +26,7 @@ async function diff(file1: string, file2: string) {
   });
 }
 
+// console.log( markdown.toHTML( "Hello *World*!" ) );
 
 // diff.forEach((part: any) => {
 //   let color: any = part.added ? 'green' : part.removed ? 'red' : 'grey' ;

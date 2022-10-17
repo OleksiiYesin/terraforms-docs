@@ -20,6 +20,7 @@ async function diff(file1, file2) {
             part.removed ? 'red' : 'grey';
     });
 }
+// console.log( markdown.toHTML( "Hello *World*!" ) );
 // diff.forEach((part: any) => {
 //   let color: any = part.added ? 'green' : part.removed ? 'red' : 'grey' ;
 //   process.stderr.write(part.value[color])

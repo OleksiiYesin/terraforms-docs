@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+var term = require( 'terminal-kit' ).terminal ;
 // import {markdown} from 'markdown-js';
 import { bgGreen } from 'colors';
 import Diff = require('diff');
@@ -21,9 +22,13 @@ async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
   diff.forEach((part) => {
-    const color: any = part.added ? `green` :
-      part.removed ? 'red' : 'grey';
-      process.stdout.write(part.value[color])
+    if(part.added) {
+      term.green(part.value)
+    } else if (part.removed) {
+      term.red(part.value)
+    } else {
+      term.grey(part.value)
+    }
   });
 }
 

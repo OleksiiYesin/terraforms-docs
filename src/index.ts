@@ -1,5 +1,4 @@
 import { execSync } from 'child_process';
-import { exportVariable } from '@actions/core';
 // import {markdown} from 'markdown-js';
 import { bgGreen } from 'colors';
 import Diff = require('diff');
@@ -27,8 +26,6 @@ async function diff(file1: string, file2: string) {
       process.stdout.write(part.value[color])
   });
 }
-
-exportVariable( 'GITHUB_STEP_SUMMARY', '### Hello world! :rocket:')
 
 // console.log( markdown.toHTML( "Hello *World*!" ) );
 

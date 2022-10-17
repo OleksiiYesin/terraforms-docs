@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
-const core_1 = require("@actions/core");
 const Diff = require("diff");
 require('colors');
 const file1 = './examples/README.md';
@@ -22,7 +21,6 @@ async function diff(file1, file2) {
         process.stdout.write(part.value[color]);
     });
 }
-(0, core_1.exportVariable)('GITHUB_STEP_SUMMARY', '### Hello world! :rocket:');
 // console.log( markdown.toHTML( "Hello *World*!" ) );
 // diff.forEach((part: any) => {
 //   let color: any = part.added ? 'green' : part.removed ? 'red' : 'grey' ;

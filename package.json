@@ -4,7 +4,7 @@
   "description": "Generating tf docs",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json --pretty"
+    "build": "tsc -p tsconfig.build.json"
   },
   "repository": {
     "type": "git",

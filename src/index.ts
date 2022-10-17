@@ -14,23 +14,25 @@ const awk2 = execSync(`awk '/<!-- END_TF_DOCS -->/{found=0} {if(found) print} /<
 if(awk1 === awk2) {
   console.log(`======\nREADME.md is up to date!!\n======\n`);
 } else {
-  diff(awk1, awk2)
+  // diff(awk1, awk2)
+  term.green('was added');
+  
 }
 
 
-async function diff(file1: string, file2: string) {
-  const diff = Diff.diffLines(file1, file2);
+// async function diff(file1: string, file2: string) {
+//   const diff = Diff.diffLines(file1, file2);
 
-  diff.forEach((part) => {
-    if(part.added) {
-      term.green(part.value)
-    } else if (part.removed) {
-      term.red(part.value)
-    } else {
-      term.grey(part.value)
-    }
-  });
-}
+//   diff.forEach((part) => {
+//     if(part.added) {
+//       term.green(part.value)
+//     } else if (part.removed) {
+//       term.red(part.value)
+//     } else {
+//       term.grey(part.value)
+//     }
+//   });
+// }
 
 // console.log( markdown.toHTML( "Hello *World*!" ) );
 

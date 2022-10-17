@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
+const chalk_1 = __importDefault(require("chalk"));
 const Diff = require("diff");
 require('colors');
 const file1 = './examples/README.md';
@@ -16,8 +20,8 @@ else {
 async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
-        const color = part.added ? 'green' : 'grey';
-        part.removed ? 'red' : 'grey';
+        const color = part.added ? chalk_1.default.greenBright :
+            part.removed ? chalk_1.default.redBright : chalk_1.default.grey;
         process.stdout.write(part.value[color]);
     });
 }

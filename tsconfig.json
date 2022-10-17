@@ -2,7 +2,8 @@
     "compilerOptions": {
       "target": "es2022",
       "module": "commonjs",
-      "pretty": true,
+      "declaration": true,
+      "importHelpers": true,
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,

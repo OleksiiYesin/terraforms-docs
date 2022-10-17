@@ -18,7 +18,7 @@ async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
         part.added ? console.log((0, colorette_1.greenBright)(part.value)) :
-            part.removed ? console.log((0, colorette_1.redBright)(part.value)) : console.log((0, colorette_1.gray)(part.value));
+            part.removed ? console.log((0, colorette_1.redBright)(part.value)) : console.log((0, colorette_1.whiteBright)(part.value));
     });
 }
 // console.log( markdown.toHTML( "Hello *World*!" ) );

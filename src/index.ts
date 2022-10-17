@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { redBright, greenBright, gray } from "colorette"
+import { redBright, greenBright, whiteBright } from "colorette"
 import Diff = require('diff');
 require('colors');
 
@@ -21,7 +21,7 @@ async function diff(file1: string, file2: string) {
 
   diff.forEach((part) => {
       part.added ? 	console.log(greenBright(part.value)):
-      part.removed ? console.log(redBright(part.value)): console.log(gray(part.value));
+      part.removed ? console.log(redBright(part.value)): console.log(whiteBright(part.value));
   });
 }
 

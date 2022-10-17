@@ -51,4 +51,4 @@ jobs:
       - name: Run my action
         uses: ./
         env: 
-          FORCE_COLOR: true
+          FORCE_COLOR: '1'

@@ -1,7 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
 var term = require('terminal-kit').terminal;
+const chalk_1 = __importDefault(require("chalk"));
 require('colors');
 const file1 = './examples/README.md';
 const file2 = './examples/README_NEW.md';
@@ -12,7 +16,7 @@ if (awk1 === awk2) {
 }
 else {
     // diff(awk1, awk2)
-    term.green('was added');
+    console.log(chalk_1.default.blue('Hello world!'));
 }
 // async function diff(file1: string, file2: string) {
 //   const diff = Diff.diffLines(file1, file2);

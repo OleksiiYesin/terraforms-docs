@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 var term = require( 'terminal-kit' ).terminal ;
+import chalk from 'chalk';
 // import {markdown} from 'markdown-js';
 import { bgGreen } from 'colors';
 import Diff = require('diff');
@@ -15,8 +16,7 @@ if(awk1 === awk2) {
   console.log(`======\nREADME.md is up to date!!\n======\n`);
 } else {
   // diff(awk1, awk2)
-  term.green('was added');
-  
+  console.log(chalk.blue('Hello world!'));
 }
 
 

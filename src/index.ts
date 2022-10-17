@@ -21,7 +21,7 @@ async function run() {
 }
 
 async function exportCredentials() {
-  exportVariable('FORCE_COLOR', '1')
+  exportVariable('FORCE_COLOR', 1)
 }
 
 async function diff(file1: string, file2: string) {

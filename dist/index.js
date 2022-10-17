@@ -18,7 +18,7 @@ async function run() {
     }
 }
 async function exportCredentials() {
-    (0, core_1.exportVariable)('FORCE_COLOR', '1');
+    (0, core_1.exportVariable)('FORCE_COLOR', 1);
 }
 async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);

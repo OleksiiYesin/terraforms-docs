@@ -9,7 +9,7 @@ const file2 = './examples/README_NEW.md';
 const awk1 = (0, child_process_1.execSync)(`awk '/<!-- END_TF_DOCS -->/{found=0} {if(found) print} /<!-- BEGIN_TF_DOCS -->/{found=1}' ${file1}`).toString();
 const awk2 = (0, child_process_1.execSync)(`awk '/<!-- END_TF_DOCS -->/{found=0} {if(found) print} /<!-- BEGIN_TF_DOCS -->/{found=1}' ${file2}`).toString();
 async function run() {
-    (0, core_1.exportVariable)('FORCE_COLOR', 1);
+    (0, core_1.exportVariable)('FORCE_COLOR', 'true');
     if (awk1 === awk2) {
         console.log(`======\nREADME.md is up to date!!\n======\n`);
     }

@@ -10,7 +10,7 @@ const awk1 = execSync(`awk '/<!-- END_TF_DOCS -->/{found=0} {if(found) print} /<
 const awk2 = execSync(`awk '/<!-- END_TF_DOCS -->/{found=0} {if(found) print} /<!-- BEGIN_TF_DOCS -->/{found=1}' ${file2}`).toString()
 
 async function run() {
-  exportVariable('FORCE_COLOR', 1)
+  exportVariable('FORCE_COLOR', 'true')
 
   if(awk1 === awk2) {
     console.log(`======\nREADME.md is up to date!!\n======\n`);

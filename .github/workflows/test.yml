@@ -19,7 +19,7 @@ jobs:
 
       - name: Debug
         run: |
-          export FORCE_COLOR=true
+          echo $FORCE_COLOR
 
       - name: Install Git
         run: |

@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import { red, greenBright, whiteBright } from "colorette"
+var markdown = require( "markdown" ).markdown;
 import Diff = require('diff');
 
 const file1: string = './examples/README.md'
@@ -19,7 +20,7 @@ async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
   diff.forEach((part) => {
-      part.added ? 	console.log(greenBright(part.value)):
+      part.added ? 	console.log(greenBright(markdown.toHTML(part.value))):
       part.removed ? console.log(red(part.value)): console.log(whiteBright(part.value));
   });
 }

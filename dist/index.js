@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
 const colorette_1 = require("colorette");
+var markdown = require("markdown").markdown;
 const Diff = require("diff");
 const file1 = './examples/README.md';
 const file2 = './examples/README_NEW.md';
@@ -16,7 +17,7 @@ else {
 async function diff(file1, file2) {
     const diff = Diff.diffLines(file1, file2);
     diff.forEach((part) => {
-        part.added ? console.log((0, colorette_1.greenBright)(part.value)) :
+        part.added ? console.log((0, colorette_1.greenBright)(markdown.toHTML(part.value))) :
             part.removed ? console.log((0, colorette_1.red)(part.value)) : console.log((0, colorette_1.whiteBright)(part.value));
     });
 }

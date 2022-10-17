@@ -16,7 +16,7 @@ if(awk1 === awk2) {
   console.log(`======\nREADME.md is up to date!!\n======\n`);
 } else {
   // diff(awk1, awk2)
-  console.log(chalk.blue('Hello world!'));
+  console.log(chalk.greenBright('Hello world!'));
 }
 
 

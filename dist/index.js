@@ -16,7 +16,7 @@ if (awk1 === awk2) {
 }
 else {
     // diff(awk1, awk2)
-    console.log(chalk_1.default.blue('Hello world!'));
+    console.log(chalk_1.default.greenBright('Hello world!'));
 }
 // async function diff(file1: string, file2: string) {
 //   const diff = Diff.diffLines(file1, file2);

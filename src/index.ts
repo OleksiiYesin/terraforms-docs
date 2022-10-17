@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { exportVariable } from '@actions/core';
 // import {markdown} from 'markdown-js';
 import { bgGreen } from 'colors';
 import Diff = require('diff');
@@ -21,10 +22,13 @@ async function diff(file1: string, file2: string) {
   const diff = Diff.diffLines(file1, file2);
 
   diff.forEach((part) => {
-    const color: any = part.added ? console.log('was added\n' + part.value.green) :
+    const color: any = part.added ? `green` :
       part.removed ? 'red' : 'grey';
+      process.stdout.write(part.value[color])
   });
 }
+
+exportVariable( 'GITHUB_STEP_SUMMARY', '### Hello world! :rocket:')
 
 // console.log( markdown.toHTML( "Hello *World*!" ) );
 
